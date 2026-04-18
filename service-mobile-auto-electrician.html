@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Auto Electrician Geelong | On-Site Car Electrical Repairs</title>
+    <meta name="description" content="Mobile auto electrician in Geelong. On-site diagnostics, breakdown repairs, no-start fault diagnosis. We come to your home, office or roadside across Geelong, Ocean Grove, Torquay & Armstrong Creek.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Mobile Auto Electrician Geelong | Geelong Auto Electrician">
+    <meta property="og:description" content="On-site car electrical diagnostics and repairs across Geelong & surrounds. We come to you.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://geelongautoelectrician.com.au/services/mobile-auto-electrician">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: #f5f0ea;
+            color: #1a1a2e;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        :root {
+            --font-display: 'Bricolage Grotesque', sans-serif;
+            --font-body: 'Bricolage Grotesque', sans-serif;
+            --navy: #1a1a2e;
+            --navy-light: #2d2d44;
+            --cream: #f5f0ea;
+            --cream-dark: #ebe5dd;
+            --accent: #8b9cf7;
+            --accent-light: #c5cdf9;
+            --accent-bg: #bfc8f8;
+            --green: #4ade80;
+            --green-bg: #ecfdf5;
+            --white: #ffffff;
+            --gray: #6b6b7b;
+            --gray-light: #9b9bab;
+            --radius: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+        /* ===== TOP BANNER ===== */
+        .top-banner {
+            background: var(--navy); color: var(--white);
+            text-align: center; padding: 12px 24px;
+            font-size: 0.88rem; font-weight: 500;
+            position: relative; z-index: 1001;
+        }
+        .top-banner a { font-weight: 700; text-decoration: underline; margin-left: 8px; }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: sticky; top: 0; z-index: 1000;
+            padding: 16px 32px; background: transparent;
+        }
+        .navbar-inner {
+            max-width: 1280px; margin: 0 auto;
+            background: var(--white); border-radius: 100px;
+            padding: 12px 12px 12px 28px;
+            display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+            position: relative; z-index: 1001;
+        }
+        .nav-logo {
+            font-family: var(--font-display); font-weight: 900;
+            font-size: 1.3rem; color: var(--navy);
+            display: flex; align-items: center; gap: 8px; white-space: nowrap;
+        }
+        .nav-logo .logo-bolt { display: flex; align-items: center; color: var(--accent); }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a {
+            font-size: 0.92rem; font-weight: 500; color: var(--navy);
+            transition: var(--transition); position: relative;
+        }
+        .nav-links a:hover { opacity: 0.6; }
+        .nav-links a.active { font-weight: 600; }
+        .nav-links a.active::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+            height: 2px; background: var(--navy); border-radius: 2px;
+        }
+        .nav-cta {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--accent-bg); color: var(--navy);
+            padding: 14px 28px; border-radius: 100px;
+            font-size: 0.9rem; font-weight: 600;
+            transition: var(--transition); border: none;
+        }
+        .nav-cta:hover { background: var(--accent); transform: translateY(-1px); }
+        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+        .mobile-toggle i { width: 28px; height: 28px; color: var(--navy); }
+
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu {
+            display: none; position: fixed; inset: 0;
+            background: var(--cream); z-index: 9999;
+            padding: 24px 32px; flex-direction: column;
+        }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 48px; }
+        .mobile-menu-close { background: none; border: none; cursor: pointer; padding: 8px; }
+        .mobile-menu-close i { width: 28px; height: 28px; color: var(--navy); }
+        .mobile-menu-links { display: flex; flex-direction: column; gap: 4px; }
+        .mobile-menu-links a {
+            font-family: var(--font-display); font-size: 2rem; font-weight: 900;
+            color: var(--navy); padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .mobile-menu-cta { margin-top: auto; display: flex; flex-direction: column; gap: 12px; }
+        .mobile-menu-cta a {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 18px; border-radius: 100px; font-weight: 700; font-size: 1rem;
+        }
+        .mob-btn-primary { background: var(--navy); color: var(--white); }
+        .mob-btn-secondary { background: var(--accent-bg); color: var(--navy); }
+
+        /* ===== BACK LINK ===== */
+        .back-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 0.9rem; font-weight: 600; color: var(--navy);
+            margin-bottom: 32px; transition: var(--transition);
+        }
+        .back-link:hover { gap: 12px; opacity: 0.7; }
+        .back-link i { width: 18px; height: 18px; }
+
+        /* ===== SERVICE HERO ===== */
+        .svc-hero {
+            padding: 48px 0 0;
+        }
+        .svc-hero h1 {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            color: var(--navy); line-height: 1.1;
+            margin-bottom: 20px; max-width: 700px;
+        }
+        .svc-hero-desc {
+            font-size: 1.05rem; color: var(--gray);
+            line-height: 1.7; max-width: 700px; margin-bottom: 48px;
+        }
+        .svc-hero-img {
+            border-radius: var(--radius-lg); overflow: hidden;
+            margin-bottom: 80px;
+        }
+        .svc-hero-img img {
+            width: 100%; height: 480px; object-fit: cover;
+        }
+
+        /* ===== SERVICE OVERVIEW ===== */
+        .svc-overview {
+            padding: 0 0 80px;
+        }
+        .svc-overview h2 {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            color: var(--navy); margin-bottom: 16px; line-height: 1.1;
+        }
+        .svc-overview-text {
+            font-size: 1rem; color: var(--gray);
+            line-height: 1.8; max-width: 700px; margin-bottom: 48px;
+        }
+        .svc-overview-img {
+            border-radius: var(--radius-lg); overflow: hidden;
+        }
+        .svc-overview-img img {
+            width: 100%; height: 440px; object-fit: cover;
+        }
+
+        /* ===== WHAT WE OFFER ===== */
+        .svc-offers {
+            padding: 0 0 80px;
+        }
+        .svc-offers h2 {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            color: var(--navy); margin-bottom: 40px; line-height: 1.1;
+        }
+        .offers-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 20px 48px; margin-bottom: 48px;
+        }
+        .offer-item {
+            display: flex; align-items: center; gap: 14px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .offer-check {
+            width: 28px; height: 28px; flex-shrink: 0;
+            border: 2px solid var(--navy); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .offer-check i { width: 14px; height: 14px; color: var(--navy); }
+        .offer-item span {
+            font-size: 0.95rem; font-weight: 600; color: var(--navy);
+        }
+        .svc-offers-img {
+            border-radius: var(--radius-lg); overflow: hidden;
+        }
+        .svc-offers-img img {
+            width: 100%; height: 440px; object-fit: cover;
+        }
+
+        /* ===== WHY CHOOSE ===== */
+        .svc-why {
+            padding: 80px 0;
+        }
+        .svc-why h2 {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            color: var(--navy); margin-bottom: 12px; line-height: 1.1;
+            max-width: 500px;
+        }
+        .svc-why > .container > p {
+            font-size: 1rem; color: var(--gray);
+            line-height: 1.7; max-width: 700px; margin-bottom: 40px;
+        }
+        .why-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .why-card {
+            background: var(--green-bg);
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            transition: var(--transition);
+        }
+        .why-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+        .why-card h4 {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: 1.15rem; color: var(--navy); margin-bottom: 12px;
+        }
+        .why-card p {
+            font-size: 0.9rem; color: var(--gray); line-height: 1.7;
+        }
+
+        /* ===== PROCESS / TIMELINE ===== */
+        .svc-process {
+            background: var(--navy); padding: 80px 0;
+            color: var(--white); position: relative;
+        }
+        .process-grid {
+            display: grid; grid-template-columns: 1fr 1.4fr;
+            gap: 60px; align-items: start;
+        }
+        .process-left {
+            position: sticky; top: 120px;
+        }
+        .process-label {
+            font-size: 0.82rem; color: var(--gray-light);
+            margin-bottom: 12px;
+        }
+        .process-left h2 {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--white); margin-bottom: 16px; line-height: 1.1;
+        }
+        .process-left p {
+            font-size: 1rem; color: rgba(255,255,255,0.5);
+            line-height: 1.7; max-width: 360px;
+        }
+        .process-steps {
+            display: flex; flex-direction: column;
+            position: relative;
+            gap: 0;
+        }
+        /* Timeline line */
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            left: 24px; top: 0; bottom: 0;
+            width: 2px;
+            background: var(--green);
+            opacity: 0.3;
+        }
+        .process-step {
+            display: flex; gap: 24px;
+            position: sticky;
+            margin-bottom: 20px;
+        }
+        .process-step:nth-child(1) { top: 80px;  z-index: 4; }
+        .process-step:nth-child(2) { top: 100px; z-index: 8; }
+        .process-step:nth-child(3) { top: 120px; z-index: 12; }
+        .process-step:nth-child(4) { top: 140px; z-index: 16; }
+        .process-step .step-content {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform-origin: center top;
+        }
+        .step-marker {
+            flex-shrink: 0;
+            width: 48px; height: 48px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800; font-size: 1rem;
+            color: var(--navy);
+            position: relative; z-index: 1;
+        }
+        .step-content {
+            background: #1e2235;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            flex: 1;
+        }
+        .step-content:hover {
+            border-color: rgba(255,255,255,0.18);
+        }
+        .step-icon {
+            color: var(--green); margin-bottom: 16px;
+        }
+        .step-icon i { width: 28px; height: 28px; }
+        .step-content h4 {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: 1.3rem; color: var(--white); margin-bottom: 8px;
+        }
+        .step-content p {
+            font-size: 0.9rem; color: rgba(255,255,255,0.5); line-height: 1.7;
+        }
+        .step-content-img {
+            border-radius: var(--radius); overflow: hidden;
+            margin-top: 20px;
+        }
+        .step-content-img img {
+            width: 100%; height: 220px; object-fit: cover;
+        }
+
+        /* ===== STATS ===== */
+        .svc-stats {
+            padding: 80px 0; text-align: center;
+        }
+        .stats-label {
+            font-size: 0.82rem; color: var(--gray-light);
+            margin-bottom: 12px;
+        }
+        .svc-stats h2 {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            color: var(--navy); margin-bottom: 12px;
+        }
+        .svc-stats > .container > p {
+            font-size: 1rem; color: var(--gray);
+            max-width: 520px; margin: 0 auto 40px;
+        }
+        .stats-row {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        .stat-cell {
+            padding: 32px;
+            border-right: 1px solid rgba(0,0,0,0.08);
+        }
+        .stat-cell:last-child { border-right: none; }
+        .stat-cell h3 {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: 2rem; color: var(--navy); margin-bottom: 8px;
+        }
+        .stat-cell p {
+            font-size: 0.85rem; color: var(--gray); line-height: 1.5;
+        }
+
+        /* ===== FAQ ===== */
+        .faq { padding: 80px 0; text-align: center; }
+        .section-label {
+            display: inline-block; font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.12em; color: var(--navy);
+            background: var(--white); border: 1px solid rgba(0,0,0,0.08);
+            padding: 8px 18px; border-radius: 100px; margin-bottom: 20px;
+        }
+        .faq h2 {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: clamp(2rem, 4vw, 3rem); color: var(--navy);
+            margin-bottom: 48px; line-height: 1.1;
+        }
+        .faq-list { max-width: 800px; margin: 0 auto; text-align: left; }
+        .faq-item {
+            background: var(--cream-dark); border-radius: var(--radius);
+            margin-bottom: 8px; overflow: hidden; transition: var(--transition);
+        }
+        .faq-item:hover { background: #e5ddd3; }
+        .faq-question {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 20px 24px; cursor: pointer;
+            font-weight: 600; font-size: 0.95rem; color: var(--navy); gap: 16px;
+        }
+        .faq-plus {
+            width: 40px; height: 40px;
+            background: var(--cream-dark); border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+            transition: var(--transition);
+        }
+        .faq-plus i { width: 16px; height: 16px; color: var(--navy); transition: transform 0.3s ease; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-answer-inner {
+            padding: 0 24px 20px; font-size: 0.9rem;
+            color: var(--gray); line-height: 1.7;
+        }
+        .faq-item.active .faq-plus { background: var(--navy); border-color: var(--navy); }
+        .faq-item.active .faq-plus i { color: var(--white); transform: rotate(45deg); }
+        .faq-item.active .faq-answer { max-height: 300px; }
+
+        /* ===== CTA BOTTOM ===== */
+        .svc-cta {
+            background: var(--navy);
+            border-radius: var(--radius-lg);
+            margin: 0 32px 60px;
+            padding: 80px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            overflow: hidden;
+        }
+        .svc-cta-text h2 {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            color: var(--white); margin-bottom: 16px; line-height: 1.15;
+        }
+        .svc-cta-text p {
+            font-size: 1rem; color: rgba(255,255,255,0.5);
+            line-height: 1.7; margin-bottom: 28px;
+        }
+        .svc-cta-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--white); color: var(--navy);
+            padding: 16px 32px; border-radius: 100px;
+            font-weight: 700; font-size: 0.9rem;
+            transition: var(--transition); border: none; cursor: pointer;
+        }
+        .svc-cta-btn:hover { background: var(--accent-bg); transform: translateY(-2px); }
+        .svc-cta-btn i { width: 18px; height: 18px; }
+        .svc-cta-checks { margin-top: 24px; }
+        .svc-cta-checks .check-item {
+            display: flex; align-items: center; gap: 10px;
+            margin-bottom: 12px; font-size: 0.9rem; font-weight: 500;
+            color: rgba(255,255,255,0.7);
+        }
+        .svc-cta-checks .check-item i { width: 18px; height: 18px; color: var(--green); }
+        .svc-cta-img {
+            border-radius: var(--radius-lg); overflow: hidden;
+        }
+        .svc-cta-img img {
+            width: 100%; height: 380px; object-fit: cover;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--cream-dark);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            padding: 64px 0 32px;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 60px; margin-bottom: 48px;
+        }
+        .footer-label {
+            font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.12em; color: var(--gray-light); margin-bottom: 16px;
+        }
+        .footer-address h3 {
+            font-family: var(--font-display); font-weight: 800;
+            font-size: 1.15rem; color: var(--navy); margin-bottom: 4px;
+        }
+        .footer-address p { color: var(--navy); font-size: 0.95rem; line-height: 1.7; }
+        .footer-contact-block h4 { font-weight: 800; font-size: 1.15rem; color: var(--navy); }
+        .footer-contact-block a {
+            color: var(--navy); font-size: 0.95rem;
+            text-decoration: underline; transition: var(--transition);
+        }
+        .footer-contact-block a:hover { color: var(--accent); }
+        .footer ul li { margin-bottom: 8px; }
+        .footer ul li a { font-size: 0.92rem; color: var(--navy); transition: var(--transition); }
+        .footer ul li a:hover { color: var(--accent); }
+        .footer-bottom {
+            border-top: 1px solid rgba(0,0,0,0.08); padding-top: 24px;
+            display: flex; justify-content: space-between;
+            font-size: 0.82rem; color: var(--gray); flex-wrap: wrap; gap: 12px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-up {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .offers-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .stat-cell:nth-child(2) { border-right: none; }
+            .stat-cell:nth-child(3) { border-top: 1px solid rgba(0,0,0,0.08); }
+            .stat-cell:nth-child(4) { border-top: 1px solid rgba(0,0,0,0.08); }
+        }
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta { display: none; }
+            .mobile-toggle { display: block; }
+            .navbar { padding: 12px 16px; }
+            .navbar-inner { padding: 10px 10px 10px 20px; }
+            .nav-logo { font-size: 1.1rem; }
+            .svc-hero-img img { height: 300px; }
+            .svc-overview-img img { height: 300px; }
+            .svc-offers-img img { height: 300px; }
+            .offers-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: 1fr; gap: 40px; }
+            .process-left { position: static; }
+            .process-step { position: relative !important; top: auto !important; }
+            .stats-row { grid-template-columns: 1fr; }
+            .stat-cell { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); }
+            .stat-cell:last-child { border-bottom: none; }
+            .svc-cta { grid-template-columns: 1fr; margin: 0 16px 40px; padding: 48px 28px; }
+            .svc-cta-img { display: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+        Mobile auto electrician — we come to you across Geelong &amp; surrounds.
+        <a href="tel:+61352000000">Call now</a>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="/" class="nav-logo">
+                <span class="logo-bolt"><i data-lucide="zap" style="width:22px;height:22px;"></i></span>
+                Geelong Auto Electrician
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#why-us">About</a>
+                <a href="/services.html" class="active">Services</a>
+                <a href="/#testimonials">Reviews</a>
+                <a href="/#contact">Contact</a>
+            </div>
+            <a href="tel:+61352000000" class="nav-cta">Get a Free Quote</a>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Open menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="/" class="nav-logo">
+                <span class="logo-bolt"><i data-lucide="zap" style="width:24px;height:24px;"></i></span>
+                Geelong Auto Electrician
+            </a>
+            <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="/">Home</a>
+            <a href="/#why-us">About</a>
+            <a href="/services.html">Services</a>
+            <a href="/#testimonials">Reviews</a>
+            <a href="/#contact">Contact</a>
+        </div>
+        <div class="mobile-menu-cta">
+            <a href="tel:+61352000000" class="mob-btn-primary"><i data-lucide="phone" style="width:18px;height:18px;"></i> Call (03) 5200 0000</a>
+            <a href="/#contact" class="mob-btn-secondary"><i data-lucide="calendar" style="width:18px;height:18px;"></i> Book Online</a>
+        </div>
+    </div>
+
+    <!-- Service Hero -->
+    <section class="svc-hero">
+        <div class="container">
+            <a href="/services.html" class="back-link">
+                <i data-lucide="chevron-left"></i> Back to Services
+            </a>
+            <h1>Mobile Auto Electrician in Geelong</h1>
+            <p class="svc-hero-desc">From no-start breakdowns to complex wiring faults — we bring the workshop to your door. On-site diagnostics and repairs across Geelong, Ocean Grove, Torquay, Armstrong Creek and surrounding suburbs.</p>
+            <div class="svc-hero-img fade-up">
+                <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=1200&q=80" alt="Mobile auto electrician servicing vehicle on-site in Geelong driveway" loading="eager">
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Overview -->
+    <section class="svc-overview">
+        <div class="container">
+            <h2 class="fade-up">Service overview</h2>
+            <p class="svc-overview-text fade-up">Your vehicle's electrical system is the backbone of everything — from starting the engine to powering your lights, windows and safety systems. When something goes wrong, you need an auto electrician who can come to you, diagnose the issue fast, and get it fixed right. Our fully equipped mobile workshop carries dealer-level scan tools, parts and wiring supplies so most jobs are completed in a single visit — no towing, no workshop drop-offs, no waiting around.</p>
+            <div class="svc-overview-img fade-up">
+                <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1200&q=80" alt="Auto electrician diagnosing vehicle electrical system with scan tool" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer -->
+    <section class="svc-offers">
+        <div class="container">
+            <h2 class="fade-up">What we offer for this service</h2>
+            <div class="offers-grid fade-up">
+                <div class="offer-item">
+                    <div class="offer-check"><i data-lucide="check"></i></div>
+                    <span>On-site diagnostics &amp; fault finding</span>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-check"><i data-lucide="check"></i></div>
+                    <span>No-start &amp; breakdown repairs</span>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-check"><i data-lucide="check"></i></div>
+                    <span>Electrical fault tracing &amp; wiring repairs</span>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-check"><i data-lucide="check"></i></div>
+                    <span>Battery testing &amp; replacement</span>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-check"><i data-lucide="check"></i></div>
+                    <span>Alternator &amp; starter motor diagnostics</span>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-check"><i data-lucide="check"></i></div>
+                    <span>Same-day emergency callouts</span>
+                </div>
+            </div>
+            <div class="svc-offers-img fade-up">
+                <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1200&q=80" alt="Mobile auto electrician working under the hood of vehicle" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="svc-why">
+        <div class="container">
+            <h2 class="fade-up">Why choose our mobile auto electrical service?</h2>
+            <p class="fade-up">We bring extensive experience and the right tools to every job, delivering reliable solutions tailored to your vehicle.</p>
+            <div class="why-grid">
+                <div class="why-card fade-up">
+                    <h4>Experienced Specialists</h4>
+                    <p>Qualified auto electricians with years of hands-on experience across all makes and models. We don't guess — we diagnose properly and fix it right the first time.</p>
+                </div>
+                <div class="why-card fade-up">
+                    <h4>Upfront Pricing</h4>
+                    <p>Honest quotes with no hidden charges. We'll explain the issue and the cost before we start any work, so you always know exactly what you're paying for.</p>
+                </div>
+                <div class="why-card fade-up">
+                    <h4>Quality Parts</h4>
+                    <p>We use quality replacement parts and OEM-grade wiring supplies. Every repair is built to last, not just to get you through the week.</p>
+                </div>
+                <div class="why-card fade-up">
+                    <h4>Customer Guarantee</h4>
+                    <p>We stand behind our work. If a repair doesn't hold up, we'll come back and make it right — no questions asked, no extra charges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Working Process -->
+    <section class="svc-process">
+        <div class="container">
+            <div class="process-grid">
+                <div class="process-left">
+                    <div class="process-label">/Process</div>
+                    <h2>Our Working Process</h2>
+                    <p>From start to finish, our process is designed to make your auto electrical experience simple, stress-free, and guaranteed to get you back on the road.</p>
+                </div>
+                <div class="process-steps">
+                    <div class="process-step fade-up">
+                        <div class="step-marker">1</div>
+                        <div class="step-content">
+                            <div class="step-icon"><i data-lucide="calendar"></i></div>
+                            <h4>Schedule Your Service</h4>
+                            <p>No long wait times, no confusion. Call us or send a message and we'll book a time that fits your schedule — often same-day.</p>
+                            <div class="step-content-img">
+                                <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80" alt="Scheduling auto electrical service appointment" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="process-step fade-up">
+                        <div class="step-marker">2</div>
+                        <div class="step-content">
+                            <div class="step-icon"><i data-lucide="users"></i></div>
+                            <h4>On-Site Inspection</h4>
+                            <p>We believe in transparency — no hidden fees, no surprises. We arrive at your location, inspect the issue, and explain the problem and cost before we start.</p>
+                            <div class="step-content-img">
+                                <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=800&q=80" alt="Auto electrician inspecting vehicle on-site" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="process-step fade-up">
+                        <div class="step-marker">3</div>
+                        <div class="step-content">
+                            <div class="step-icon"><i data-lucide="wrench"></i></div>
+                            <h4>Professional Repair</h4>
+                            <p>Fast, reliable, and professional service that gets your vehicle's electrics working properly again — most jobs completed on the first visit.</p>
+                            <div class="step-content-img">
+                                <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&q=80" alt="Professional auto electrical repair in progress" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="process-step fade-up">
+                        <div class="step-marker">4</div>
+                        <div class="step-content">
+                            <div class="step-icon"><i data-lucide="shield-check"></i></div>
+                            <h4>Quality Guaranteed</h4>
+                            <p>Every repair is tested, verified, and backed by our workmanship guarantee. We're only a call away if you ever need follow-up support.</p>
+                            <div class="step-content-img">
+                                <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=800&q=80" alt="Completed auto electrical repair with quality guarantee" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="svc-stats">
+        <div class="container">
+            <div class="stats-label">By the numbers</div>
+            <h2>Proven Results</h2>
+            <p>Our track record speaks for itself — trusted by Geelong drivers for reliable, on-site auto electrical services.</p>
+            <div class="stats-row fade-up">
+                <div class="stat-cell">
+                    <h3>2,500+</h3>
+                    <p>Vehicles serviced across Geelong &amp; surrounds.</p>
+                </div>
+                <div class="stat-cell">
+                    <h3>98%</h3>
+                    <p>Customers rate us 5 stars for transparent pricing &amp; fast response.</p>
+                </div>
+                <div class="stat-cell">
+                    <h3>10+</h3>
+                    <p>Years of experience in auto electrical diagnostics &amp; repair.</p>
+                </div>
+                <div class="stat-cell">
+                    <h3>Same Day</h3>
+                    <p>Average response time for emergency &amp; breakdown callouts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <span class="section-label">Need help?</span>
+            <h2>Frequently asked questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        What areas does your mobile service cover?
+                        <div class="faq-plus"><i data-lucide="plus"></i></div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">We service all of Geelong and surrounds including Ocean Grove, Torquay, Armstrong Creek, Charlemont, Waurn Ponds, Belmont, Highton, Newtown and neighbouring suburbs. If you're unsure, give us a call.</div></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        How quickly can you come out for a breakdown?
+                        <div class="faq-plus"><i data-lucide="plus"></i></div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">We offer same-day callouts for breakdowns and no-start situations. Call us as early as possible and we'll work to fit you in — often within a couple of hours depending on our schedule and your location.</div></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Do I need to tow my car to a workshop?
+                        <div class="faq-plus"><i data-lucide="plus"></i></div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">No — that's the whole point of our mobile service. We come to you with a fully equipped van, whether you're at home, work, or on the roadside. Most repairs are completed on-site in a single visit.</div></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        How much does a mobile callout cost?
+                        <div class="faq-plus"><i data-lucide="plus"></i></div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Pricing varies depending on the job. We always provide an upfront quote before starting any work so there are no surprises. Call us to discuss your situation and we'll give you an honest estimate.</div></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        What vehicles do you work on?
+                        <div class="faq-plus"><i data-lucide="plus"></i></div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">We work on all makes and models — from everyday cars to European vehicles, 4WDs, utes and light commercial vehicles. We carry dealer-level diagnostic tools for all major brands.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Bottom -->
+    <div class="svc-cta">
+        <div class="svc-cta-text">
+            <h2>Don't Let Electrical Problems Disrupt Your Day</h2>
+            <p>Whether it's a no-start, a wiring fault or a warning light — our expert mobile auto electricians are just one call away. Reliable and affordable service, at your door.</p>
+            <a href="tel:+61352000000" class="svc-cta-btn">
+                Book a Free Call <i data-lucide="arrow-right"></i>
+            </a>
+            <div class="svc-cta-checks">
+                <div class="check-item"><i data-lucide="circle-check"></i> On-site diagnostics &amp; repair</div>
+                <div class="check-item"><i data-lucide="circle-check"></i> Same-day emergency callouts</div>
+                <div class="check-item"><i data-lucide="circle-check"></i> Upfront pricing, no surprises</div>
+            </div>
+        </div>
+        <div class="svc-cta-img">
+            <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=800&q=80" alt="Auto electrician testing car battery" loading="lazy">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-label">Address</div>
+                    <div class="footer-address">
+                        <h3>Geelong Auto Electrician</h3>
+                        <p>Mobile Service<br>Geelong, VIC 3220</p>
+                    </div>
+                    <div class="footer-contact-block">
+                        <div class="footer-label" style="margin-top:24px;">Phone</div>
+                        <h4><a href="tel:+61352000000">(03) 5200 0000</a></h4>
+                    </div>
+                    <div class="footer-contact-block">
+                        <div class="footer-label" style="margin-top:24px;">Email</div>
+                        <a href="mailto:info@geelongautoelectrician.com.au">info@geelongautoelectrician.com.au</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-label">Pages</div>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/#why-us">About</a></li>
+                        <li><a href="/services.html">Services</a></li>
+                        <li><a href="/#testimonials">Reviews</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-label">Services</div>
+                    <ul>
+                        <li><a href="/service-mobile-auto-electrician.html">Mobile Auto Electrician</a></li>
+                        <li><a href="/services.html">Car Electrical Diagnostics</a></li>
+                        <li><a href="/services.html">European Vehicles</a></li>
+                        <li><a href="/services.html">Battery &amp; Charging</a></li>
+                        <li><a href="/services.html">Trailer Wiring</a></li>
+                        <li><a href="/services.html">Dash Cam Installation</a></li>
+                        <li><a href="/services.html">Car Air Conditioning</a></li>
+                        <li><a href="/services.html">ECU Coding</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Geelong Auto Electrician. All rights reserved.</span>
+                <span>ABN: XX XXX XXX XXX &nbsp;|&nbsp; Licensed Auto Electrician</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        function toggleFaq(el) {
+            var item = el.parentElement;
+            var wasActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('active'); });
+            if (!wasActive) item.classList.add('active');
+            lucide.createIcons();
+        }
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+
+        // Process steps — scale down card as next one covers it
+        (function() {
+            var steps = document.querySelectorAll('.process-step');
+            if (!steps.length || window.innerWidth <= 768) return;
+            var tops = [80, 100, 120, 140];
+            var ticking = false;
+
+            function update() {
+                for (var i = 0; i < steps.length - 1; i++) {
+                    var card = steps[i].querySelector('.step-content');
+                    var currentRect = steps[i].getBoundingClientRect();
+                    var nextRect = steps[i + 1].getBoundingClientRect();
+
+                    // Only apply when current card is stuck at its top
+                    if (currentRect.top <= tops[i] + 2) {
+                        var overlap = currentRect.bottom - nextRect.top;
+                        if (overlap > 0) {
+                            var progress = Math.min(overlap / (currentRect.height * 0.5), 1);
+                            var scale = 1 - progress * 0.05;
+                            card.style.transform = 'scale(' + Math.max(scale, 0.95) + ')';
+                            card.style.opacity = 1 - progress * 0.6;
+                        } else {
+                            card.style.transform = '';
+                            card.style.opacity = '';
+                        }
+                    } else {
+                        card.style.transform = '';
+                        card.style.opacity = '';
+                    }
+                }
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(update);
+                    ticking = true;
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
