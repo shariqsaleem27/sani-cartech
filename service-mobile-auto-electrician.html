@@ -272,29 +272,31 @@
         .process-steps {
             display: flex; flex-direction: column;
             position: relative;
-            gap: 0;
+            gap: 32px;
         }
-        /* Timeline line */
+        /* Timeline line (dim base track) */
         .process-steps::before {
             content: '';
             position: absolute;
             left: 24px; top: 0; bottom: 0;
             width: 2px;
+            background: rgba(0, 229, 146, 0.18);
+        }
+        /* Timeline line (animated progress) */
+        .process-steps-progress {
+            position: absolute;
+            left: 24px; top: 0;
+            width: 2px;
+            height: 0;
             background: var(--green);
-            opacity: 0.3;
+            box-shadow: 0 0 8px rgba(0, 229, 146, 0.5);
+            pointer-events: none;
+            z-index: 0;
+            will-change: height;
         }
         .process-step {
             display: flex; gap: 24px;
-            position: sticky;
-            margin-bottom: 20px;
-        }
-        .process-step:nth-child(1) { top: 80px;  z-index: 4; }
-        .process-step:nth-child(2) { top: 100px; z-index: 8; }
-        .process-step:nth-child(3) { top: 120px; z-index: 12; }
-        .process-step:nth-child(4) { top: 140px; z-index: 16; }
-        .process-step .step-content {
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            transform-origin: center top;
+            position: relative;
         }
         .step-marker {
             flex-shrink: 0;
@@ -330,10 +332,20 @@
         }
         .step-content-img {
             border-radius: var(--radius); overflow: hidden;
+            margin-top: 0;
+            max-height: 0;
+            opacity: 0;
+            will-change: max-height, opacity, margin-top;
+            transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease;
+        }
+        .process-step.is-active .step-content-img {
             margin-top: 20px;
+            max-height: 260px;
+            opacity: 1;
         }
         .step-content-img img {
             width: 100%; height: 220px; object-fit: cover;
+            display: block;
         }
 
         /* ===== STATS ===== */
@@ -521,6 +533,8 @@
             .process-grid { grid-template-columns: 1fr; gap: 40px; }
             .process-left { position: static; }
             .process-step { position: relative !important; top: auto !important; }
+            .process-steps-progress { display: none; }
+            .step-content-img { max-height: none !important; opacity: 1 !important; margin-top: 20px !important; }
             .stats-row { grid-template-columns: 1fr; }
             .stat-cell { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); }
             .stat-cell:last-child { border-bottom: none; }
@@ -680,6 +694,7 @@
                     <p>From start to finish, our process is designed to make your auto electrical experience simple, stress-free, and guaranteed to get you back on the road.</p>
                 </div>
                 <div class="process-steps">
+                    <div class="process-steps-progress" aria-hidden="true"></div>
                     <div class="process-step fade-up">
                         <div class="step-marker">1</div>
                         <div class="step-content">
@@ -710,17 +725,6 @@
                             <p>Fast, reliable, and professional service that gets your vehicle's electrics working properly again — most jobs completed on the first visit.</p>
                             <div class="step-content-img">
                                 <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&q=80" alt="Professional auto electrical repair in progress" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="process-step fade-up">
-                        <div class="step-marker">4</div>
-                        <div class="step-content">
-                            <div class="step-icon"><i data-lucide="shield-check"></i></div>
-                            <h4>Quality Guaranteed</h4>
-                            <p>Every repair is tested, verified, and backed by our workmanship guarantee. We're only a call away if you ever need follow-up support.</p>
-                            <div class="step-content-img">
-                                <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=800&q=80" alt="Completed auto electrical repair with quality guarantee" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -894,45 +898,50 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
 
-        // Process steps — scale down card as next one covers it
+        // Process timeline:
+        //   - Green progress line grows down the track as the section scrolls.
+        //   - Whichever card sits at the line's current tip gets .is-active,
+        //     which expands its image. All others stay collapsed (title+text only).
         (function() {
+            var stepsContainer = document.querySelector('.process-steps');
             var steps = document.querySelectorAll('.process-step');
-            if (!steps.length || window.innerWidth <= 768) return;
-            var tops = [80, 100, 120, 140];
-            var ticking = false;
+            var progressLine = document.querySelector('.process-steps-progress');
+            if (!stepsContainer || !progressLine || !steps.length) return;
 
             function update() {
-                for (var i = 0; i < steps.length - 1; i++) {
-                    var card = steps[i].querySelector('.step-content');
-                    var currentRect = steps[i].getBoundingClientRect();
-                    var nextRect = steps[i + 1].getBoundingClientRect();
+                var rect = stepsContainer.getBoundingClientRect();
+                var viewportRef = window.innerHeight * 0.5;
+                var scrolled = viewportRef - rect.top;
+                var lineHeight = Math.max(0, Math.min(scrolled, rect.height));
+                progressLine.style.height = lineHeight + 'px';
 
-                    // Only apply when current card is stuck at its top
-                    if (currentRect.top <= tops[i] + 2) {
-                        var overlap = currentRect.bottom - nextRect.top;
-                        if (overlap > 0) {
-                            var progress = Math.min(overlap / (currentRect.height * 0.5), 1);
-                            var scale = 1 - progress * 0.05;
-                            card.style.transform = 'scale(' + Math.max(scale, 0.95) + ')';
-                            card.style.opacity = 1 - progress * 0.6;
-                        } else {
-                            card.style.transform = '';
-                            card.style.opacity = '';
-                        }
-                    } else {
-                        card.style.transform = '';
-                        card.style.opacity = '';
-                    }
+                // Active card = closest to the viewport reference line.
+                var activeIdx = 0;
+                var minDist = Infinity;
+                for (var i = 0; i < steps.length; i++) {
+                    var stepRect = steps[i].getBoundingClientRect();
+                    var markerCenter = stepRect.top + 24; // marker is 48px, centered 24px from top
+                    var dist = Math.abs(markerCenter - viewportRef);
+                    if (dist < minDist) { minDist = dist; activeIdx = i; }
                 }
+                for (var j = 0; j < steps.length; j++) {
+                    steps[j].classList.toggle('is-active', j === activeIdx);
+                }
+
                 ticking = false;
             }
 
-            window.addEventListener('scroll', function() {
+            var ticking = false;
+            function onScroll() {
                 if (!ticking) {
                     requestAnimationFrame(update);
                     ticking = true;
                 }
-            });
+            }
+
+            update();
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', update);
         })();
     </script>
 </body>
