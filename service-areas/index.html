@@ -503,6 +503,10 @@
             .navbar-inner { padding: 10px 10px 10px 20px; }
             .nav-logo { margin: 0; }
             .nav-logo .logo-img { height: 80px; }
+            /* Mobile header logo: enlarge the wordmark inside a fixed-height,
+               clipped box so the pill height is unchanged. */
+            .navbar-inner .nav-logo { height: 80px; overflow: hidden; }
+            .navbar-inner .nav-logo .logo-img { height: 178px !important; }
             .areas-hero { padding: 56px 0 40px; }
             .areas-grid { grid-template-columns: 1fr; }
             .areas-cta { padding: 48px 24px; }

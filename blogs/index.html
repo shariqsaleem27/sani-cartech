@@ -485,6 +485,10 @@
             .navbar-inner { padding: 10px 10px 10px 20px; }
             .nav-logo { margin: 0; }
             .nav-logo .logo-img { height: 80px; }
+            /* Mobile header logo: enlarge the wordmark inside a fixed-height,
+               clipped box so the pill height is unchanged. */
+            .navbar-inner .nav-logo { height: 80px; overflow: hidden; }
+            .navbar-inner .nav-logo .logo-img { height: 178px !important; }
             .blog-card { grid-template-columns: 1fr; }
             .blog-card-img { aspect-ratio: 16/10; }
             .blog-hero { padding: 56px 0 32px; }

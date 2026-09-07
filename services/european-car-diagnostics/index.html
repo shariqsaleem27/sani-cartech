@@ -919,6 +919,10 @@
             .navbar-inner { gap: 12px; }
             .nav-logo { margin: 0; }
             .nav-logo .logo-img { height: 64px; filter: brightness(0) invert(1); }
+            /* Mobile header logo: enlarge the wordmark inside a fixed-height,
+               clipped box so the pill height is unchanged. */
+            .navbar-inner .nav-logo { height: 64px; overflow: hidden; }
+            .navbar-inner .nav-logo .logo-img { height: 178px; }
             .nav-cta {
                 padding: 8px 14px;
                 font-size: 0.74rem;
